@@ -1,0 +1,43 @@
+doctype html
+html(lang='en')
+  head
+    title= title
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel="stylesheet", href='/stylesheets/style.css')
+    link(rel="stylesheet", href= styles)
+    
+  body
+    aside(class="invisible") 
+      div 
+        h2 AliGroceries
+        img(class="close", src="/images/close.svg", alt="Close Button")
+      nav
+        ul(class="lists") 
+          li 
+            a(href='/catalog') Home
+          li 
+            a(href='/catalog/categories') All Categories 
+          li 
+            a(href='/catalog/items') All Items
+          li 
+            a(href='/catalog/stocks') All Stocks
+        ul(class="forms")
+          li 
+            a(href='/catalog/category/create') Create Category
+          li 
+            a(href='/catalog/item/create') Create Item
+          li 
+            a(href='/catalog/stock/create') Create Stock Item
+    main
+      div(class="main-container")
+        img(class="menu", src="/images/icon-hamburger.svg", alt="Menu")
+        block content 
+      footer 
+        p Created by 
+          a(href='https://github.com/mwiafeansong', target='_blank') mwiafeansong
+
+    script(src="/javascripts/script.js") 
+        
+
+

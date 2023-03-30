@@ -1,0 +1,17 @@
+extends layout 
+
+block content 
+  h1= title 
+  div.form-top-div
+    form(method='POST', action='')
+      label(for='category_name') Category Name: 
+      input(type='text' name='category_name' placeholder='Name', required='true', value=(undefined === category ? '' : category.name))
+      label(for='category_description') Category Description: 
+      textarea(name='category_description' placeholder='Should not exceed 200 characters', rows='6' maxlength='200' required='true', value=(undefined === category ? '' : category.description)) #{undefined === category ? '' : category.description}
+      button(type='submit') Submit
+    if errors 
+      ul(style='margin-top: 30px; font-weight: 700') 
+        each err in errors 
+          li!= err.msg
+
+    

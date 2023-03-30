@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  div.backdrop
+    //- img(src="/images/grocery-store.jpg", alt="A Grocery Store")
+
+  h1 Welcome to AliGroceries
+  
+  if error 
+    p(style="text-align:center")= error
+  else 
+    div(class='container')
+      div(class="card")
+        h2(style='color: #0f0') #[strong Categories] 
+        p !{data.category_count}
+      div(class="card")
+        h2(style='color: #f22') #[strong Items]  
+        p !{data.item_count}
+      div(class="card")
+        h2(style='color: #22f') #[strong Items In Stock] 
+        p !{data.stock_count}
+
+
+  

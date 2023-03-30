@@ -1,0 +1,31 @@
+extends layout 
+
+block content 
+  h1 All Stock 
+  
+  table.stock-list 
+    thead 
+      tr 
+        th Name
+        th Type 
+        th Size 
+        th Price 
+        th Number In Stock
+    tbody 
+      each stock in stock_list.sort(function(a, b) {let textA = a.item.name; let textB = b.item.name; return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;})
+       tr 
+        td
+          a(href=stock.item.url) #{stock.item.name}
+        if stock.good_type == null
+          td N/A
+        else 
+          td #{stock.good_type}
+        if stock.size == null 
+          td N/A 
+        else 
+          td #{stock.size}
+        td $#{stock.price}
+        if stock.number_in_stock === 0
+          td(style='color: #f22; font-weight: bold') #{stock.number_in_stock}
+        else
+          td= stock.number_in_stock

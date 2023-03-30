@@ -1,0 +1,13 @@
+.backdrop {
+  background-color: rgba(0, 0, 0, 0.4);
+  background-image: url('/images/grocery-store.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+  height: 250px;
+  width: 100%;
+}
+
+.card p {
+  font-size: 1.5rem;
+}

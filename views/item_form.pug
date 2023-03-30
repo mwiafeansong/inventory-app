@@ -1,0 +1,26 @@
+extends layout 
+
+block content 
+  h1= title 
+  
+  div.form-top-div
+    form(method='POST', action='')
+      label(for='item_name') Item Name: 
+      input(type='text' name='item_name' placeholder='Name', required='true', value=(undefined === item ? '' : item.name))
+      label(for='item_description') Item Description: 
+      textarea(type='textarea' id='item-description' name='item_description' placeholder='Should not exceed 200 characters', rows='6' maxlength='200' required='true') #{undefined === item ? '' : item.description}
+      label(for='category') Category: 
+      select(type='select', id='category' name='category', required='true')
+        option(hidden='hidden') Select Category
+        -categories.sort(function(a, b) {let textA = a.name; let textB = b.name; return (textA < textB) ? -1 : (textA > textB) ? 1 : 0})
+        each category in categories 
+          if item 
+            option(value=category._id, selected=(category._id.toString()===item.category.toString() ? 'selected' : false), ) #{category.name}
+          else 
+            option(value=category._id) #{category.name}
+      button(type='submit') Submit
+    
+    if errors 
+      ul(style='margin-top: 30px; font-weight: 700') 
+        each err in errors 
+          li!= err.msg

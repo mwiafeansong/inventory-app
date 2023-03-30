@@ -1,0 +1,11 @@
+extends layout 
+
+block content 
+  h1 All Categories 
+
+  div.container
+    each category in category_list
+      div.card
+        h2
+          a(href=category.url) #{category.name}
+        p= category.description

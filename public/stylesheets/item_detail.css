@@ -1,0 +1,29 @@
+.stock-card {
+  width: 250px;
+  border: 1px solid #eee;
+  box-shadow: 2px 3px 5px #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  letter-spacing: 1px;
+}
+
+.out-of-stock {
+  letter-spacing: normal;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #f22;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.links {
+  letter-spacing: normal;
+}
+
+a {
+  color: #22f;
+}
+
+a:hover {
+  color: #77f;
+}

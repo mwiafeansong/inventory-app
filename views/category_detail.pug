@@ -1,0 +1,27 @@
+extends layout 
+
+block content 
+  h1= category.name
+  h2(style='font-size:1.3rem; color: #888')= category.description
+  
+  table.category-detail-list 
+    thead 
+      tr 
+        th Name of Item
+        th Description 
+    tbody 
+      each item in category_items 
+        tr
+          td 
+            a(href=item.url) #{item.name}
+          td #{item.description}
+      else 
+        tr 
+          td(colspan='2', style='padding: 20px') There are no items in this category
+  
+  div(style='display:flex; justify-content:center; flex-wrap: wrap; gap: 30px;')
+    button(style='margin-top:40px; background-color: #f44')
+      a(style='color:#fff', href=category.url + '/delete') Delete Category
+    button(style='margin-top:40px; background-color: #33f')
+      a(style='color:#fff', href=category.url + '/update') Update Category
+  

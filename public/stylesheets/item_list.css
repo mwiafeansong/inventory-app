@@ -1,0 +1,38 @@
+table {
+  width: 80%;
+  text-align: left;
+  vertical-align: middle;
+  margin: auto;
+  border-collapse: collapse;
+  overflow-x: auto;
+}
+
+thead {
+  background-color: #cccfff;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #eeefff;
+}
+
+th,
+td {
+  padding: 10px;
+}
+
+tr {
+  box-shadow: 3px 3px 5px #ddd;
+}
+
+a {
+  color: #22f;
+}
+
+a:hover {
+  color: #77f;
+}
+
+.stock-list,
+.category-detail-list {
+  text-align: center;
+}

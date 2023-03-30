@@ -1,0 +1,27 @@
+extends layout 
+
+block content 
+  h1= stock.item.name
+  h2(style='font-size:1.3rem; color: #888')= stock.item.description
+  
+  div(class='container', style='justify-content: center')
+    div.stock-card
+      if stock.good_type != null && stock.size != null
+        p #[strong Type:] #{stock.good_type} 
+        p #[strong Size:] #{stock.size}
+      else if stock.good_type == null && stock.size != null
+        p #[strong Size:] #{stock.size} 
+      else if stock.good_type != null && stock.size == null 
+        p #[strong Type:] #{stock.good_type}
+      p #[strong Price:] $#{stock.price}
+      if stock.number_in_stock === 0
+        p.out-of-stock OUT OF STOCK
+      else 
+        p(style='margin-bottom:15px') #[strong Number In Stock:] #{stock.number_in_stock}
+    
+  p(style='text-align:center') Do you really want to delete this stock?
+
+  form.del-form(method='POST' action='')
+    input#authorid.form-control(type='hidden',name='stockid', required='true', value=stock._id )
+
+    button(style='margin-top:20px; color: #fff; background-color: #f44', type='submit') Delete

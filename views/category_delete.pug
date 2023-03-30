@@ -1,0 +1,26 @@
+extends layout 
+
+block content 
+  h1= category.name
+  h2(style='font-size:1.3rem; color: #888')= category.description 
+  
+  if category_items.length
+    p(style='text-align:center;margin-bottom:15px; color:#f44') #[strong Delete the following items before attempting to delete this category.]
+    table.category-detail-list 
+      thead 
+        tr 
+          th Name of Item
+          th Description 
+      tbody 
+        each item in category_items 
+          tr
+            td 
+              a(href=item.url) #{item.name}
+            td #{item.description}
+  else 
+    p(style='text-align:center') Do you really want to delete this category?
+
+    form.del-form(method='POST' action='')
+      input#authorid.form-control(type='hidden',name='categoryid', required='true', value=category._id )
+
+      button(style='margin-top:20px; color: #fff; background-color: #f44', type='submit') Delete

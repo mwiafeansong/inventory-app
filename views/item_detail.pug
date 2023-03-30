@@ -1,0 +1,51 @@
+extends layout 
+
+block content 
+  h1= item.name 
+  h2(style='font-size:1.3rem; color: #888')= item.description
+
+  div.container
+    each item in item_stock 
+      div.stock-card
+        //- if item.good_type != null && item.size != null
+        //-   p #[strong Type:] #{item.good_type} 
+        //-   p #[strong Size:] #{item.size}
+        //- else if item.good_type == null && item.size != null
+        //-   p #[strong Size:] #{item.size} 
+        //- else if item.good_type != null && item.size == null 
+        //-   p #[strong Type:] #{item.good_type}
+        //- p #[strong Price:] $#{item.price}
+        if item.good_type == null || item.good_type == ''
+          p #[strong Type:] N/A
+        else 
+          p #[strong Type:] #{item.good_type}
+        
+        if item.size == null || item.size == ''
+          p #[strong Size:] N/A
+        else
+          p #[strong Size:] #{item.size}
+        
+        p #[strong Price:] $#{item.price}
+        
+        if item.number_in_stock === 0
+          p.out-of-stock OUT OF STOCK
+        else 
+          p(style='margin-bottom:15px') #[strong Number In Stock:] #{item.number_in_stock}
+
+        hr
+        p.links
+          a(style='display: block', href=item.url + '/delete') Delete Stock
+          a(style='display: block', href=item.url + '/update') Update Stock
+    else
+      div(style='display:flex; justify-content:center; width: 100%') 
+        p(style='font-size: 1.3rem') There are no stock for this item.
+
+  div(style='display:flex; justify-content: center; flex-wrap: wrap; gap: 30px;')
+    button(style='background-color: #f44')
+      a(style='color:#fff', href=item.url + '/delete') Delete Item
+    button(style='background-color: #33f')
+      a(style='color:#fff', href=item.url + '/update') Update Item
+        
+        
+
+

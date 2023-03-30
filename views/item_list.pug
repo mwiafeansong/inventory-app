@@ -1,0 +1,18 @@
+extends layout 
+
+block content 
+  h1 All Items 
+  
+  table 
+    thead 
+      tr 
+        th Name
+        th Description 
+        th Category
+    tbody 
+      each item in item_list.sort(function(a, b) {let textA = a.category.name; let textB = b.category.name; return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;})
+       tr 
+        td
+          a(href=item.url) #{item.name}  
+        td #{item.description} 
+        td #{item.category.name}
