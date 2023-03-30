@@ -8,11 +8,10 @@ Users are able to view, create, update and delete items, categories and stock in
 - [Link](#link)
 - [Built with](#built-with)
 - [What I learned](#what-i-learned)
-- [Attribution](#attribution)
 
 ### Link
 
-[Live Demo]()
+[Live Demo](https://mwiafeansong-inventory-app.up.railway.app)
 
 ### Built with
 
